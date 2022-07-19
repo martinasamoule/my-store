@@ -1,0 +1,108 @@
+{
+  "Categories": [
+    {
+      "id": 1,
+      "name": "Laptops"
+    },
+    {
+      "id": 2,
+      "name": "Mobiles"
+    },
+    {
+      "id": 3,
+      "name": "Bags"
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "Name": "Universal bag ",
+      "Quantity": 3,
+      "Price": 20,
+      "Img": "https://m.media-amazon.com/images/I/71LXSf7dHFL._SY450_.jpg",
+      "Categoryid": 3,
+      "Info": "Universal Store - New Bags for Girls, Mini Backpack for Women & Girls PU Casual Purse Fashion School, Leather Backpack Shoulder Bag"
+    },
+    {
+      "id": 3,
+      "Name": "Samsung Galaxy a53",
+      "Quantity": 2,
+      "Price": 250,
+      "Img": "https://shop.orange.eg/content/images/thumbs/0004938_samsung-galaxy-a53-5g_550.jpeg",
+      "Categoryid": 2,
+      "Info": "Main Display : 6.5 Super AMOLED Refresh rate 120Hz IP68 water & dust resistance Processor : Exynos 1280 (5nm) Battery : 5,000 mAh 25W Fast charging OS : Android 12"
+    },
+    {
+      "id": 9,
+      "Name": "Apple macbook pro 14",
+      "Quantity": 3,
+      "Price": 800,
+      "Img": "https://www.tradeinn.com/f/13841/138412956/apple-macbook-pro-14-m1-pro-16gb--512gb-ssd-laptop.jpg",
+      "Categoryid": 1,
+      "Info": "The new MacBook Pro is available in 14- and 16-inch models. Each can be configured with the M1 Pro or M1 Max chip and offers unprecedented levels of pro performance. So you can manipulate millions of polygons in Cinema 4D, edit up to seven streams of 8K ProRes video in Final Cut Pro, or grade color in HDR on 8K 4x4 ProRes video — all miles away from the edit bay."
+    },
+    {
+      "id": 4,
+      "Name": "Blue bag",
+      "Quantity": 5,
+      "Price": 15,
+      "Img": "https://i2.wp.com/www.society19.com/uk/wp-content/uploads/sites/5/2017/04/blue-suede-backpack.jpg",
+      "Categoryid": 3,
+      "Info": "MATERIAL - Flex manufactured out of premium canvas. OCCASION - College, Coaching, Tution, School COMPARTMENTS - A roomy main compartment and a large front pocket organizer.backpack has a really large pocket organizer in the front"
+    },
+    {
+      "id": 5,
+      "Name": "Apple iphone 13 pro max",
+      "Quantity": 4,
+      "Price": 300,
+      "Img": "https://ehabgroup.com/media/catalog/product/cache/2a797be35c23629e9baa6eb12b5607f2/a/p/apple_iphone_13_pro_max_1tb_green.jpg",
+      "Categoryid": 2,
+      "Info": "Apple iPhone 13 Pro Max 128GB Green screen comes from a type Super Retina XDR OLED with an area of ​​​​6.7 inches, with a resolution of 1284 x 2778 pixels, at a pixel density of 458 pixels per inch, with support for display dimensions in a ratio of 19.5: 9 to display larger content on the phone screen, whether while watching videos or playing games, in addition to the presence of a layer resistant to fingerprints and oils On the phone screen is an oleophobic coating with scratch-resistant glass, in addition, to support for HDR10 and support for the highest refresh rate of 120Hz to get the best possible response, especially while playing or even while using the phone in general "
+    },
+    {
+      "id": 6,
+      "Name": "Laptop bag",
+      "Quantity": 3,
+      "Price": 60,
+      "Img": "https://m.media-amazon.com/images/I/415h5OSatLL.jpg",
+      "Categoryid": 3,
+      "Info": "Dynotrek 13 14 Upto 15.6 Inch Laptop Casual Sack-pack Rucksack Travel Backpack With USB Charging Port For Men & Women Waterproof Backpack Suitable for Chromebook DT02SCB"
+    },
+    {
+      "id": 7,
+      "Name": "Oppo Reno 7 Pro ",
+      "Quantity": 1,
+      "Price": 200,
+      "Img": "https://specs-tech.com/wp-content/uploads/2021/10/Oppo-Reno-7-Pro-1.jpg",
+      "Categoryid": 2,
+      "Info": "Operating System : Android 11 , DISPLAY Size : 6.55 Inch , CPU : Dimensity 1200 Max 5G , RAM : 8/12 GB Ram , Storage : 256 GB , Camera : Triple  50+16+2 MP"
+    },
+    {
+      "id": 8,
+      "Name": "CHUWI Herobook pro Laptop",
+      "Quantity": 0,
+      "Price": 500,
+      "Img": "https://m.media-amazon.com/images/I/61XS1+c+kXL._AC_SL1500_.jpg",
+      "Categoryid": 1,
+      "Info": "14 inch 8GB RAM 256GB SSD(TF 512GB), FHD(1920x1080) 16:9 IPS Windows 10 Laptops, Intel N4020(Up to 2.8GHz), 4K Video, WiFi, BT4.0, Mini-HDMI Support Win11"
+    },
+    {
+      "id": 2,
+      "Name": "Travel back bag",
+      "Quantity": 5,
+      "Price": 50,
+      "Img": "https://www.ikea.com/eg/en/images/products/vaerldens-travel-back-pack-black__0976478_pe813249_s5.jpg?f=xxs",
+      "Categoryid": 3,
+      "Info": "A perfect overnight bag or gym bag. Made of recycled polyester, lightweight, spacious and easy to fold out. Just pack clothes, a toiletries bag, a yoga mat or anything else you need and you’re on your way."
+    },
+    {
+      "id": 10,
+      "Categoryid": 1,
+      "Name": "Lenovo ideapad l3",
+      "Quantity": 2,
+      "Price": 700,
+      "Img": "https://th.bing.com/th/id/R.0859bb19aaea2f41251374def4ae4f45?rik=KLGO7owcJ7Awag&pid=ImgRaw&r=0",
+      "Info": " intel 10th Gen core i7-10510U- 8 GB RAM- 1 TB HDD+256SSD- NVIDIA GeForce MX330 2GB GDDR5 Graphic card-15.6 inch "
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="alert alert-dark alert-dismissible fade show mt-3 col-md-5" role="alert" *ngIf="ShowMessage">
+      <strong>Congratulation</strong> {{AddedMessage}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ShowMessage=false"></button>
+    </div>
+  </div>
+  <div class="border border-2 m-2 row">
+    <div class="m-2">
+      <label for="prdCat" class="form-label fs-2">Categories : </label>
+      <select #SelectedCategory class="form-select" name="category" id="prdCat"
+        (change)="FilterCategory(SelectedCategory.value)">
+        <option selected disabled>Choose the category</option>
+        <option value="0">All</option>
+        <option *ngFor="let item of Categories" [value]="item.id">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <app-product-item [ProductsList]="FilterProductList" (AddedProductEvent)="AddToCart($event)"></app-product-item>
+    <!-- <div class="row d-flex justify-content-around ">
+      <div class="card col-lg-2 col-sm-3 col-md-5 m-3 text-center  " *ngFor="let product of FilterProductList; let i = index">
+        <img [src]=" product.Img " class="card-img-top mt-3 ProductImage" alt="product image"
+         [routerLink]="['/Products' , product.id]">
+        <div class="card-body">
+          <h6 class="card-title ">
+            {{product.Name }}
+        </h6>
+          <p class="card-text">Price : {{ product.Price | currency: "USD":"symbol"}}</p>
+          <p class="card-text" *ngIf="product.Quantity!=0; else outOfStock">Quantity : {{product.Quantity}}</p>
+          <ng-template #outOfStock>
+            <p>Out of Stock</p>
+          </ng-template>
+          <div class="d-grid gap-2">
+            <td>
+              <input #Count type="number" class="form-control" min="1" max={{product.Quantity}} value="{{product.Quantity==0?0:1}}"></td>
+              <button type="button" class="btn btn-success mt-2"
+                (click)="AddToCart(product.Quantity,product.Price , product.Name, Count.value , product.id)"
+                [ngClass]="{'btn-danger':product.Quantity==0 , 'btn-warning':product.Quantity==1 ,'disabled':product.Quantity==0 }">
+                Add to Cart
+              </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

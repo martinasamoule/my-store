@@ -1,0 +1,94 @@
+<div class="card text-center mx-5 my-2 mb-5 mt-3">
+  <div class="row g-0">
+    <div class="card-header fs-2">Your Orders</div>
+    <div class="col-md-2">
+      <img src="assets/shop.jpg" class="img-fluid rounded-start CartImg">
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <div class="mb-2 mt-2">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Count</th>
+                <th scope="col"></th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let product of AddedCartProducts; let i = index">
+                <tr>
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ product.ProductName }}</td>
+                  <td>{{ product.PriceOfProd | currency: "USD":"symbol"}}</td>
+                  <td>
+                  {{ product.CountOfProd }}
+                  <td>
+                  </td>
+                  <td>
+                    {{
+                      product.PriceOfProd * product.CountOfProd
+                        | currency: "USD":"symbol"
+                    }}
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="RemoveProduct(product.ProductName)" [disabled]="ShowConfirm">
+                      Remove product 
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+          <p class="card-text fs-4" *ngIf="Showes">
+            Total Price : {{ TotalPrice | currency: "USD":"symbol" }}
+          </p>
+          <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="!Showes">
+            <strong>Thanks {{FullName?.value}}</strong> Your order is Done ....
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-success m-3"[disabled]="TotalPrice==0" (click)="ShowConfirm=true " *ngIf="!ShowConfirm ">
+              Confirm the order
+            </button>
+          </div>
+            <form [formGroup]="ConfirmForm" class="m-3" (ngSubmit)="ConfirmOrder()" *ngIf="ShowConfirm && Showes">
+              <div class="mb-2 col-md-12 text-start fs-5">
+                <label for="FullName" class="form-label"> Enter FullName</label>
+                <input type="text" formControlName="FullName" class="form-control" 
+                placeholder="(Minimun 3 characters)"id="FullName" name="userFname" 
+                [class.is-invalid]="FullName?.invalid" [class.is-valid]="FullName?.valid">
+              </div>
+              <div class="col-md-12 mb-2 text-start fs-5">
+                <label for="Address" class="form-label"> Enter Address</label>
+                <input type="text" formControlName="Address" class="form-control" 
+                id="Address" name="userAddress" placeholder="(Minimun 6 characters)"
+                [class.is-invalid]="Address?.invalid" [class.is-valid]="Address?.valid">
+              </div>
+              <div class="col-md-12 mb-2 text-start fs-5">
+                <label for="CreditNumber" class="form-label"> Enter Credit Number</label>
+                <input type="number" formControlName="CreditNumber" class="form-control" 
+                id="CreditNumber" name="userCreditNumber" placeholder="(16-digits)"
+                [class.is-invalid]="CreditNumber?.invalid" [class.is-valid]="CreditNumber?.valid">
+              </div>
+              <div class="text-center">
+                <button [disabled]="ConfirmForm.invalid" type="submit" class="btn btn-success btn-lg m-3">Submit</button>
+              </div>
+            </form>
+          <button type="button" class="btn btn-info text-white" (click)="Back()">Back to products </button>
+        </div>
+      </div>
+      
+    </div>
+    <div class="card-footer text-muted">
+        Today Date : {{ MyDate | date: "longDate" }}
+    </div>
+  </div>
+</div>
+
+

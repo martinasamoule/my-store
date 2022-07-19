@@ -1,0 +1,17 @@
+<div class="row d-flex justify-content-around" >
+  <div class="card  mt-4 col-4 mb-4 "  >
+    <img [src]="Product?.Img" class="card-img-top mt-1" alt="product image">
+    <div class="card-body">
+      <h4 class="card-title text-center">
+        {{Product?.Name }}
+      </h4>
+      <p class="card-text fs-6" >- {{Product?.Info}} .</p>
+      <p class="card-text fs-5">- Price : {{ Product?.Price | currency: 'USD': 'symbol'}}</p>
+    </div>
+    <div class="btn-group mb-2" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-dark" [ngClass]="{'disabled': WantedProductId == AllProducts[0].id}"(click)="Previous()">Previous</button>
+        <button type="button" class="btn btn-danger" (click)="Back()">Back</button>
+        <button type="button" class="btn btn-dark" [ngClass]="{'disabled': WantedProductId == AllProducts[AllProducts.length-1].id}" (click)="Next()">Next</button>
+      </div>
+  </div>
+</div>
