@@ -19,10 +19,9 @@ export class ProductItemComponent implements OnInit{
   ngOnInit(): void {
   }
   
-  SendProductDta(Quantity: number, Price: number, Name: string, Count: any , Id:number ) {
+  SendProductDta( Price: number, Name: string, Count: any , Id:number ) {
     this.AddedProductEvent.emit(
       {
-        Quantity:Quantity ,
         Price:Price ,
         Name:Name ,
         Count:Count ,

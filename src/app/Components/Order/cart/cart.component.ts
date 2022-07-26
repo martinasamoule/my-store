@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
     this.PutCartElements(this.AddedCartProducts);
     this.APIProducts.GetAllProducts().subscribe
     (
-      products=>this.ProductList=products
+      data=>this.ProductList=data.Products
     )
   }
   get FullName() {
@@ -92,22 +92,22 @@ export class CartComponent implements OnInit {
 
   ConfirmOrder()
   {
-    for(let i =0 ; i< this.ProductList.length ; i++)
-    {
+    // for(let i =0 ; i< this.ProductList.length ; i++)
+    // {
      
-      for(let j =0 ; j< this.AddedCartProducts.length ; j++)
-    {
-      if(this.ProductList[i].id==this.AddedCartProducts[j].ProductId)
-      { 
-        if(this.ProductList[i].Quantity !=0)
-        {
-          this.ProductList[i].Quantity-=this.AddedCartProducts[j].CountOfProd ;
-          this.AddedCartProducts[j].QuantityOfProd -= this.AddedCartProducts[j].CountOfProd ;
-        }
-      }
-      this.APIProducts.UpdateProduct(this.ProductList[i].id,this.ProductList[i]).subscribe();
-    }
-    }
+    //   for(let j =0 ; j< this.AddedCartProducts.length ; j++)
+    // {
+    //   if(this.ProductList[i].id==this.AddedCartProducts[j].ProductId)
+    //   { 
+    //     if(this.ProductList[i].Quantity !=0)
+    //     {
+    //       this.ProductList[i].Quantity-=this.AddedCartProducts[j].CountOfProd ;
+    //       this.AddedCartProducts[j].QuantityOfProd -= this.AddedCartProducts[j].CountOfProd ;
+    //     }
+    //   }
+    //   // this.APIProducts.UpdateProduct(this.ProductList[i].id,this.ProductList[i]);
+    // }
+    // }
     this.Showes = false;
     this.AddedCartProducts=[];
     this.ProductStaticServ.CartProducts = [];

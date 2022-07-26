@@ -22,18 +22,28 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.APIProducts.GetAllProducts().subscribe
     (
-      products=>this.AllProducts=products 
+      data=>
+     { 
+      this.AllProducts=data.Products 
+      this.ActivatedRoute.paramMap.subscribe(parmMap=>
+        {
+          this.WantedProductId = Number(parmMap.get('ID')) ;
+          // this.APIProducts.GetProductById(this.WantedProductId).subscribe
+          // (
+          //   product=>this.Product=product 
+          // )
+          this.AllProducts.map(
+              product=>{
+                if(product.id==this.WantedProductId)
+                this.Product = product
+                console.log(this.Product)
+              }
+            )
+        })
+    }
     )
-    this.ActivatedRoute.paramMap.subscribe(parmMap=>
-      {
-        this.WantedProductId = Number(parmMap.get('ID')) ;
-        this.APIProducts.GetProductById(this.WantedProductId).subscribe
-        (
-          product=>this.Product=product 
-        )
-      })
-  }
 
+  }
   Back()
   {
     this.Router.navigate(['/Products']);

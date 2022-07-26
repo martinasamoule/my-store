@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { IProduct } from './../Models/iproduct';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { CartVM } from '../ViewModules/cart-vm';
+import { Idata } from '../Models/idata';
 
 @Injectable({
   providedIn: 'root'
@@ -34,39 +34,35 @@ export class APIProductServService {
     )
   }
 
-  GetAllProducts():Observable<IProduct[]>
+  GetAllProducts():Observable<Idata>
   {
-    return this.HTTPClient.get<IProduct[]>(`${environment.APIURL}/Products`)
+    return this.HTTPClient.get<Idata>(`${environment.APIURL}`);
   }
 
-  GetProductById(ProductId:number ):Observable<IProduct>
-  {
-    return this.HTTPClient.get<IProduct>(`${environment.APIURL}/Products/${ProductId}`) 
-  }
 
-  GetProductByCategoryId(CategoryId:number ):Observable<IProduct[]>
-  {
-    if(CategoryId==0)
-    {
-      return this.HTTPClient.get<IProduct[]>(`${environment.APIURL}/Products`)
-    }
-    else
-    {
-      return this.HTTPClient.get<IProduct[]>(`${environment.APIURL}/Products?Categoryid=${CategoryId}`)
-    }
+  // UpdateProduct(ProductId:number , UpdatedProduct:IProduct)
+  // {
+  //   // return this.HTTPClient.patch
+  //   // (`${environment.APIURL}/Products/${ProductId}`, UpdatedProduct , this.httpOption)
+  //   // .pipe(
+  //   //   retry(2),
+  //   //   catchError(this.handleError)
+  //   // );
+  //    this.GetAllProducts().subscribe(
+  //     data =>
+  //     {
+  //       data.Products.map(product=>
+  //         {
+  //           if(product.id == ProductId)
+  //           {
+  //             product = UpdatedProduct
+  //           }
+  //         } )
+  //     }
+  //    )
+
     
-  }
-
-
-  UpdateProduct(ProductId:number , UpdatedProduct:IProduct)
-  {
-    return this.HTTPClient.patch
-    (`${environment.APIURL}/Products/${ProductId}`, UpdatedProduct , this.httpOption)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    );
-  }
+  // }
 
 
 }

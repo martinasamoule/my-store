@@ -13,8 +13,8 @@ export class ProductStaticServService {
   constructor() { 
   }
   
-  AddToCart(Quantity: number, Price: number, Name: string, Count: any , Id:number ) :CartVM [] {
-    if (Quantity != 0 && Quantity>=Count && Count!=0) {
+  AddToCart( Price: number, Name: string, Count: any , Id:number ) :CartVM [] {
+
       let Found =this.CartProducts.find(Product=>Product.ProductId==Id)
       if(Found)
       {
@@ -32,12 +32,11 @@ export class ProductStaticServService {
         ProductName: Name,
         CountOfProd: +Count,
         PriceOfProd: Price,
-        QuantityOfProd: Quantity,
         ProductId:Id
       });
       }
      
-    }
+    
      return this.CartProducts ;
   }
 

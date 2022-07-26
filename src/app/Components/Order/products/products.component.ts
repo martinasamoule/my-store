@@ -1,3 +1,4 @@
+import { Idata } from './../../../Models/idata';
 import { ICategory } from '../../../Models/icategory';
 import { IProduct } from '../../../Models/iproduct';
 import {
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit  , OnDestroy{
   AddedMessage:string =  "You item added sucessfully to cart .. " ;
   ShowMessage:boolean = false ;
   IntervalAds:any ;
+  arr:Idata={Categories:[],Products:[]}
 
   constructor( private ProductStaticServ : ProductStaticServService , private APIProducts : APIProductServService) {
     this.Categories = [
@@ -37,13 +39,15 @@ export class ProductsComponent implements OnInit  , OnDestroy{
   ngOnInit(): void {
     this.APIProducts.GetAllProducts().subscribe
     (
-      products=>this.FilterProductList = products 
+      // product => {this.arr= product
+      // console.log(this.arr.Products)}
+      data =>this.FilterProductList = data.Products
     );
   }
 
 
   AddToCart(event:any) {
-    this.CartProducts = this.ProductStaticServ.AddToCart(event.Quantity, event.Price, event.Name, event.Count , event.Id );
+    this.CartProducts = this.ProductStaticServ.AddToCart( event.Price, event.Name, event.Count , event.Id );
     this.ShowMessage = true ;
     this.IntervalAds = setTimeout(()=>{
      this.ShowMessage = false ;
@@ -51,10 +55,24 @@ export class ProductsComponent implements OnInit  , OnDestroy{
   }
 
   FilterCategory(categoryid: any) {
-    this.APIProducts.GetProductByCategoryId(+categoryid).subscribe
+    // this.APIProducts.GetProductByCategoryId(+categoryid).subscribe
+    // (
+    //   products=>this.FilterProductList = products 
+    // );
+    this.APIProducts.GetAllProducts().subscribe
     (
-      products=>this.FilterProductList = products 
-    );
+     data=> 
+      {
+        if(categoryid==0)
+        {
+          this.FilterProductList = data.Products
+        }
+        else 
+        {
+          this.FilterProductList = data.Products.filter(product => product.Categoryid==categoryid)
+        }
+      }
+    )
    
   }
 
