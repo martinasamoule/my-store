@@ -22,6 +22,9 @@ export class CartComponent implements OnInit {
   Categories: ICategory[];
   AddedCartProducts: CartVM[] = [];
   ProductList:IProduct[]=[];
+  ShowMessage:boolean = false ;
+  IntervalAds:any ;
+  ShowDone:boolean = false ;
   constructor(private ProductStaticServ : ProductStaticServService ,
     private APIProducts : APIProductServService, private FormBuild: FormBuilder ,private Router: Router) 
   { 
@@ -88,30 +91,20 @@ export class CartComponent implements OnInit {
     {
       return product.ProductName != Name;
     });
+    this.ShowMessage = true ;
+    this.IntervalAds = setTimeout(()=>{
+      this.ShowMessage = false ;
+   },3000);
   }
 
   ConfirmOrder()
   {
-    // for(let i =0 ; i< this.ProductList.length ; i++)
-    // {
-     
-    //   for(let j =0 ; j< this.AddedCartProducts.length ; j++)
-    // {
-    //   if(this.ProductList[i].id==this.AddedCartProducts[j].ProductId)
-    //   { 
-    //     if(this.ProductList[i].Quantity !=0)
-    //     {
-    //       this.ProductList[i].Quantity-=this.AddedCartProducts[j].CountOfProd ;
-    //       this.AddedCartProducts[j].QuantityOfProd -= this.AddedCartProducts[j].CountOfProd ;
-    //     }
-    //   }
-    //   // this.APIProducts.UpdateProduct(this.ProductList[i].id,this.ProductList[i]);
-    // }
-    // }
     this.Showes = false;
     this.AddedCartProducts=[];
     this.ProductStaticServ.CartProducts = [];
   }
+
+
 
 
   
